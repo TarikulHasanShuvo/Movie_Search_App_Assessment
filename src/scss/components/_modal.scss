@@ -1,0 +1,64 @@
+.modal {
+
+  /*From Right/Left */
+  &.drawer {
+    display: flex !important;
+    pointer-events: none;
+    * {
+      pointer-events: none;
+    }
+
+    .modal-dialog {
+      margin: 0px;
+      display: flex;
+      flex: auto;
+      transform: translate(25%, 0);
+
+      .modal-dialog-scrollable {
+        @media (min-width: 576px) {
+          max-height: 100vh!important;
+        }
+
+
+        .modal-content {
+          max-height: 100vh;
+        }
+      }
+
+      .modal-content {
+        border: none;
+        border-radius: 0;
+
+        .modal-body {
+          overflow: auto;
+        }
+      }
+
+    }
+
+    &.show {
+      pointer-events: none;
+
+      * {
+        pointer-events: auto;
+      }
+
+      .modal-dialog {
+        transform: translate(0, 0);
+      }
+    }
+
+    &.right-align {
+      flex-direction: row-reverse;
+    }
+
+    &.left-align {
+      &:not(.show) {
+        .modal-dialog {
+          transform: translate(-25%, 0);
+        }
+      }
+    }
+
+  }
+}

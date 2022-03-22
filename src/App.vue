@@ -1,9 +1,10 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <NavBar/>
+    <div class="container">
+      <router-view/>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
@@ -28,3 +29,10 @@ nav {
   }
 }
 </style>
+<script>
+import NavBar from "@/components/layout/NavBar";
+
+export default {
+  components: {NavBar}
+}
+</script>

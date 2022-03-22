@@ -1,0 +1,8 @@
+
+@mixin replace-by-dot($width) {
+  display: inline-block;
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

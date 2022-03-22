@@ -1,0 +1,28 @@
+
+// abstracts
+@import 'abstract/variables';
+@import 'abstract/functions';
+@import 'abstract/mixins';
+
+// components
+@import 'components/button';
+@import 'components/input';
+@import 'components/report.table';
+@import 'components/mw.card';
+@import 'components/table.card';
+@import "components/modal";
+
+// vendors
+@import 'vendors/bootstrap';
+
+
+// Layout
+@import "layouts/dashboard";
+@import "layouts/setting.slidebar";
+@import "layouts/report.slidebar";
+
+// pages
+@import "pages/pos";
+@import "pages/setting";
+@import "pages/dashboard";
+@import "components/image.upload";

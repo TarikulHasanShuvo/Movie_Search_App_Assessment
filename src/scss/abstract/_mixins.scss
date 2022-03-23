@@ -1,7 +1,8 @@
 
-@mixin replace-by-dot($width) {
+@mixin replace-by-dot($width:'100%',$height:'100%') {
   display: inline-block;
   width: $width;
+  height: $height ;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;

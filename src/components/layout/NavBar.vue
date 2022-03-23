@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav id="navbar" class="navbar navbar-expand-lg">
     <div class="container">
-      <router-link to="/">
-        <a class="navbar-brand">Movie Search App</a>
+      <router-link class="title" to="/">
+        <h3 >Movie Search App</h3>
       </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

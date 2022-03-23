@@ -1,0 +1,11 @@
+#movies {
+  .card {
+    img {
+      height: 100%;
+    }
+    .card-text{
+      @include replace-by-dot(100%,25px);
+    }
+  }
+
+}

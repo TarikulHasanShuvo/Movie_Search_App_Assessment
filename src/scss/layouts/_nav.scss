@@ -1,0 +1,11 @@
+#navbar{
+  background-color: #0b123e;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  .title{
+    color: $light-color;
+    text-decoration: none;
+  }
+}

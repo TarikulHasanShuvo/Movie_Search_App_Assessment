@@ -1,0 +1,23 @@
+
+.search-categories{
+  .list-group{
+    .list-group-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+
+      &.active{
+        background-color: lighten($secondary-color,45%);
+        color: $dark-color;
+        font-weight: bold;
+      }
+      &:hover{
+        background-color: lighten($secondary-color,48%);
+      }
+    }
+  }
+}

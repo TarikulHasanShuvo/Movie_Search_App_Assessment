@@ -1,7 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Home from '../pages/Home'
+import Home from '../pages/home/Home'
 import Search from '../pages/Search'
-import SingleSearch from '../pages/SingleSearch'
+import SingleMovie from '../pages/SingleMovie'
+import SinglePeople from '../pages/singlePeople'
+import SingleTvShow from '../pages/singleTvShow'
+import PageNotFound from '../pages/PageNotFound'
 
 const routes = [
     {
@@ -15,10 +18,25 @@ const routes = [
         component: Search
     },
     {
-        path: '/single-search',
-        name: 'singleSearch',
-        component: SingleSearch
-    }
+        path: '/movie/:id',
+        name: 'singleMovie',
+        component: SingleMovie
+    },
+    {
+        path: '/people/:id',
+        name: 'singlePeople',
+        component: SinglePeople
+    },
+    {
+        path: '/tv-show/:id',
+        name: 'singleTvShow',
+        component: SingleTvShow
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: PageNotFound
+    },
+
 ]
 
 const router = createRouter({

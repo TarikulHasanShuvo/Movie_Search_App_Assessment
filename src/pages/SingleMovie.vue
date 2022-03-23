@@ -74,17 +74,22 @@
         </div>
       </div>
     </div>
-
+    <loading v-model:active="isLoading" :is-full-page="true"/>
   </div>
 </template>
 
 <script>
 import ApiService from "@/service/api.service";
-
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 export default {
   name: "SingleSearch",
+  components: {
+    Loading
+  },
   data: () => ({
     movie: {},
+    isLoading : true
   }),
   mounted() {
     this.getSingleMovie()
@@ -93,8 +98,8 @@ export default {
     getSingleMovie() {
       ApiService.get(`movie/${this.$route.params.id}`)
           .then(({data}) => {
-            this.movie = data
-          })
+            this.movie = data;
+          }).finally(()=> this.isLoading = false)
     },
     getImageUrl(url) {
       if (url != null) return process.env.VUE_APP_IMAGE_BASE_URL + url;

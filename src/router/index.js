@@ -2,8 +2,8 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Home from '../pages/home/Home'
 import Search from '../pages/Search'
 import SingleMovie from '../pages/SingleMovie'
-import SinglePeople from '../pages/singlePeople'
-import SingleTvShow from '../pages/singleTvShow'
+import SinglePeople from '../pages/SinglePeople'
+import SingleTvShow from '../pages/SingleTvShow'
 import PageNotFound from '../pages/PageNotFound'
 
 const routes = [
@@ -40,7 +40,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(process.env.VUE_APP_BASE_URL),
     routes
 })
 

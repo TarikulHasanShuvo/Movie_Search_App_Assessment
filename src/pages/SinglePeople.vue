@@ -53,21 +53,29 @@
         </div>
       </div>
     </div>
+    <loading v-model:active="isLoading" :is-full-page="true"/>
   </div>
 </template>
 
 <script>
 import ApiService from "@/service/api.service";
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 export default {
   name: "singlePeople",
+  components: {
+    Loading
+  },
   data: () => ({
     people: {},
-    peopleExtraInfo: []
+    peopleExtraInfo: [],
+    isLoading : true
   }),
   async mounted() {
     await this.getSinglePeople()
     await this.getPeopleExtraInfo()
+    this.isLoading = false;
   },
   methods: {
     getSinglePeople() {

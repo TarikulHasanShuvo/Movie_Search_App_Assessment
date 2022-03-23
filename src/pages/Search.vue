@@ -1,6 +1,6 @@
 <template>
   <div class="search container">
-    <SearchingComponent/>
+    <SearchingComponent ref="searchingComponent"/>
     <div class="row">
       <div class="col-3">
         <SearchResultCategories/>

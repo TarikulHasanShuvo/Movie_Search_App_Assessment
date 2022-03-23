@@ -7,7 +7,6 @@ import ApiService from "@/service/api.service";
 import '../src/scss/main.scss';
 import 'bootstrap';
 import moment from 'moment';
-
 ApiService.init()
 
 moment.locale('en');

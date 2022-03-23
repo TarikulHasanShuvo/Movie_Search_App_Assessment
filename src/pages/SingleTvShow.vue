@@ -73,17 +73,22 @@
         </div>
       </div>
     </div>
-
+    <loading v-model:active="isLoading" :is-full-page="true"/>
   </div>
 </template>
 
 <script>
 import ApiService from "@/service/api.service";
+import Loading from "vue-loading-overlay";
 
 export default {
   name: "SingleTvShow",
+  components: {
+    Loading
+  },
   data: () => ({
     tvShow: {},
+    isLoading : true
   }),
   mounted() {
     this.getSingleTvShow()
@@ -93,7 +98,7 @@ export default {
       ApiService.get(`tv/${this.$route.params.id}`)
           .then(({data}) => {
             this.tvShow = data
-          })
+          }).finally(()=> this.isLoading = false)
     },
     getImageUrl(url) {
       if (url != null) return process.env.VUE_APP_IMAGE_BASE_URL + url;

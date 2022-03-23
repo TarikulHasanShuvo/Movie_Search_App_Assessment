@@ -1,18 +1,16 @@
-
 // abstracts
 @import 'abstract/variables';
 @import 'abstract/mixins';
 
-// components
-@import "components/search";
-@import "components/movies";
 // vendors
 @import 'vendors/bootstrap';
-
 
 // Layout
 @import "layouts/nav";
 
+// components
+@import "components/search";
+@import "components/movies";
 
 // pages
 @import "pages/home";

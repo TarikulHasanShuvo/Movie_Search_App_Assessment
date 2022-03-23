@@ -19,12 +19,26 @@
       </div>
     </div>
     <h2 v-else class="text-muted text-center my-5">No movies found.</h2>
+
+    <div v-if="Object.keys($store.state.movies).length" class="pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><button :class="{'disabled text-muted' : $store.state.movies.page == 1}" :disabled="$store.state.movies.page == 1" @click.prevent="$parent.$refs.searchingComponent.getMovies($store.state.movies.page-1)" class="page-link" href="#">Previous</button></li>
+          <li class="page-item"><button :class="{'disabled text-muted' : $store.state.movies.total_pages == $store.state.movies.page}" :disabled="$store.state.movies.total_pages == $store.state.movies.page" @click.prevent="$parent.$refs.searchingComponent.getMovies($store.state.movies.page+1)" class="page-link" href="#">Next</button></li>
+        </ul>
+      </nav>
+    </div>
+
   </div>
 </template>
-
 <script>
+
+
 export default {
   name: "Movies",
+  data : ()=>({
+    page : 1
+  }),
   methods: {
     gotoSingleMovie(id) {
       this.$router.push({name: 'singleMovie', params: {id: id}})

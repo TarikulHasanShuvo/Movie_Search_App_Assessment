@@ -21,6 +21,14 @@
       </div>
     </div>
     <h2 v-else class="text-muted text-center my-5">No Peoples found.</h2>
+    <div v-if="Object.keys($store.state.peoples).length" class="pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><button :class="{'disabled text-muted' : $store.state.peoples.page == 1}" :disabled="$store.state.peoples.page == 1" @click.prevent="$parent.$refs.searchingComponent.getMovies($store.state.peoples.page-1)" class="page-link" href="#">Previous</button></li>
+          <li class="page-item"><button :class="{'disabled text-muted' : $store.state.peoples.total_pages == $store.state.peoples.page}" :disabled="$store.state.peoples.total_pages == $store.state.peoples.page" @click.prevent="$parent.$refs.searchingComponent.getPeoples($store.state.peoples.page+1)" class="page-link" href="#">Next</button></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 

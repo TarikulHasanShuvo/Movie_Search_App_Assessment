@@ -10,6 +10,7 @@
     <PopularMovies/>
     <PopularTvShows/>
     <PopularPeoples/>
+    <loading v-model:active="isLoading" :is-full-page="true"/>
   </div>
 </template>
 <script>
@@ -20,14 +21,16 @@ import PopularMovies from "@/pages/home/components/PopularMovies";
 import PopularTvShows from "@/pages/home/components/PopularTvShows";
 import PopularPeoples from "@/pages/home/components/PopularPeoples";
 import ApiService from "@/service/api.service";
+import Loading from "vue-loading-overlay";
 
 export default {
   name: "Home",
-  components: {PopularPeoples, PopularTvShows, PopularMovies, SearchingComponent},
+  components: {PopularPeoples, PopularTvShows, PopularMovies, SearchingComponent, Loading},
   data: () => ({
     popularMovies: {},
     popularTvShows: {},
-    popularPeoples: {}
+    popularPeoples: {},
+    isLoading: true
   }),
   mounted() {
     this.getPopularMovies();
@@ -54,7 +57,7 @@ export default {
       ApiService.get('tv/popular')
           .then(({data}) => {
             this.popularTvShows = data.results
-          })
+          }).finally(()=> this.isLoading = false)
     },
     getImageUrl(url) {
       if (url != null) return process.env.VUE_APP_IMAGE_BASE_URL + url;
